@@ -56,7 +56,7 @@ namespace seneca {
         return os;
     }
     bool Drink::order() {
-        cout << "          Drink Size Selection" << endl;
+        cout << "         Drink Size Selection" << endl;
         cout << "           1- Small" << endl;
         cout << "           2- Medium" << endl;
         cout << "           3- Larg" << endl;
