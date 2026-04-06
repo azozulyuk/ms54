@@ -40,19 +40,19 @@ namespace seneca {
         return in;
     }
     ostream& Food::print(ostream& os) const {
+
         os << m_name;
 
-        int dots = (m_size == 0 ? 33 : 28) - strlen(m_name);
+        int dots = 28 - strlen(m_name);
         if (dots < 0) dots = 0;
 
         for (int i = 0; i < dots; i++) os << '.';
 
-        if (m_size == 1) os << "Adult";
-        else if (m_size == 2) os << "Child";
+        if (m_size == 1) os << "Adult ";
+        else if (m_size == 2) os << "Child ";
 
-        os << setw(7) << right << fixed << setprecision(2) << price();
-
-        if (&os == &cout && m_instructions[0] != '\0') {
+        os << setw(6) << right << fixed << setprecision(2) << price();
+        if (m_instructions[0] != '\0') {
             os << " >> " << m_instructions;
         }
 
@@ -69,7 +69,9 @@ namespace seneca {
         cin.ignore(1000, '\n');
         cout << "Special instructions" << endl;
         cout << "> ";
+      
         cin.getline(m_instructions, 100);
+       
         return true;
     }
     double Food::price() const {
